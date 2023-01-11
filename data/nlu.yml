@@ -1,4 +1,4 @@
-version: "3.0"
+version: "3.1"
 nlu:
 - intent: greet
   examples: |
@@ -77,9 +77,46 @@ nlu:
     - [xpeng]{"entity": "stock", "role": "base"}
     - [novonordisk]{"entity": "stock", "role": "base"}
     - [nndm]{"entity": "stock", "role": "base"}
+- intent: inform_shares
+  examples: |
+    - I'd like to buy shares
+    - shares
+    - shares please
+    - fractional shares
+    - a portion
+    - portion of shares
+- intent: inform_currency
+  examples: |
+    - I'd like to buy for a certain amount of dollars
+    - amount in dollars
+    - currency
+    - amount in currency
+    - dollars
+    - in currency
+    - in dollars
+- intent: inform_amount
+  examples: |
+    - two shares
+    - 251
+    - 312.7 dollars
+    - 2512
+    - a million
+    - three
+    - seven
+    - 2
+    - 56 shares
+    - for 300 bucks
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: request_stock_form
+  examples: |
+    - I'd like to buy some stocks
+    - I'd like to buy [pltr]{"entity": "stock", "role": "base"}
+    - can I trade some stocks?
+    - please give me ability to trade stocks
+    - let me trade
+    - buy some stocks for me

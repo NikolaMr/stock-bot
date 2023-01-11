@@ -14,7 +14,7 @@ class ValidatePredefinedSlots(ValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate location value."""
+        """Validate stock base value."""
         return {'stock_base': NED.get_ticker_symbol(slot_value)}
 
     def validate_stock_match(
@@ -24,5 +24,5 @@ class ValidatePredefinedSlots(ValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate location value."""
+        """Validate stock match value."""
         return {'stock_match': NED.get_ticker_symbol(slot_value)}

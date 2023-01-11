@@ -1,4 +1,4 @@
-version: "3.0"
+version: "3.1"
 
 rules:
 
@@ -16,3 +16,19 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: activate stock form
+  steps:
+  - intent: request_stock_form
+  - action: stock_form
+  - active_loop: stock_form
+
+- rule: submit stock form
+  condition:
+  - active_loop: stock_form
+  steps:
+  - action: stock_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_stock_form

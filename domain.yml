@@ -1,4 +1,4 @@
-version: '3.0'
+version: '3.1'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -11,8 +11,14 @@ intents:
 - affirm
 - deny
 - get_stock_details
+- inform_amount
+- inform_shares
+- inform_currency
+- request_stock_form
 entities:
 - stock
+- number
+- amount-of-money
 slots:
   stock_base:
     type: text
@@ -28,6 +34,45 @@ slots:
     - type: from_entity
       entity: stock
       role: match
+  buy_type:
+    type: categorical
+    values:
+      - shares
+      - currency
+    mappings:
+    - type: from_intent
+      value: shares
+      intent: inform_shares
+    - type: from_intent
+      value: currency
+      intent: inform_currency
+  amount:
+    type: float
+    mappings:
+    - type: from_entity
+      entity: number
+    - type: from_entity
+      entity: amount-of-money
+  buy_at_market_price:
+    type: bool
+    mappings:
+    - type: from_intent
+      value: true
+      intent: affirm
+    - type: from_intent
+      value: false
+      intent: deny
+  price:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: number
+      - type: from_entity
+        entity: amount-of-money
+forms:
+  stock_form:
+    required_slots:
+    - stock_base
 responses:
   utter_greet:
   - text: Hey! How can I help you with stocks?
@@ -37,6 +82,25 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a stock informing bot.
+  utter_ask_stock_base:
+  - text: What stock would you like to buy?
+  utter_ask_buy_at_market_price:
+  - text: Would you like to buy at market price?
+  utter_ask_price:
+  - text: At what price would you like to buy?
+  utter_ask_buy_type:
+  - text: Would you like to buy a number of shares or would you like to buy for a certain amount of dollars?
+  utter_ask_amount:
+  - condition:
+      - type: slot
+        name: buy_type
+        value: shares
+    text: How many shares would you like to buy?
+  - condition:
+      - type: slot
+        name: buy_type
+        value: currency
+    text: For what amount would you like to buy?
 actions:
 - action_get_stock_price
 - action_get_stocks_compared
@@ -45,3 +109,5 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_iamabot
+- validate_stock_form
+- action_submit_stock_form

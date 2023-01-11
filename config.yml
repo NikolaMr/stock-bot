@@ -15,8 +15,12 @@ pipeline:
      model_name: "bert"
      model_weights: "bert-base-uncased"
    - name: DIETClassifier
-     epochs: 30
+     epochs: 100
      constrain_similarities: true
+   - name: "DucklingEntityExtractor"
+     url: "http://localhost:8000"
+     dimensions: [ "number", "amount-of-money" ]
+     locale: "en_US"
    - name: EntitySynonymMapper
    - name: ResponseSelector
      epochs: 50

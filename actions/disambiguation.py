@@ -4,6 +4,7 @@ class NED:
         'pltr': 'pltr',
         'palantir': 'pltr',
         'tesla': 'tsla',
+        'tsla': 'tsla',
         'novonordisk': 'novo-b.co',
         'ibm': 'ibm',
         'upwork': 'upwk',

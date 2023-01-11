@@ -1,4 +1,4 @@
-version: "3.0"
+version: "3.1"
 
 stories:
 
@@ -8,6 +8,7 @@ stories:
   - action: utter_greet
   - intent: get_stock_price
   - action: action_get_stock_price
+
 - story: interactive_story_1
   steps:
   - intent: greet
