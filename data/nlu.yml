@@ -70,7 +70,7 @@ nlu:
     - [gamestop]{"entity": "stock", "role": "base"} info
     - [upwork]{"entity": "stock", "role": "base"} details
     - details for [ferrari]{"entity": "stock", "role": "base"}
-- intent: inform
+- intent: inform_stock
   examples: |
     - [tesla]{"entity": "stock", "role": "base"}
     - [ibm]{"entity": "stock", "role": "base"}
@@ -120,3 +120,13 @@ nlu:
     - please give me ability to trade stocks
     - let me trade
     - buy some stocks for me
+- intent: cancel
+  examples: |
+    - actually, I changed my mind
+    - changed my mind, don't want to do it
+    - cancel
+    - cancel, not now after all
+    - not now actually
+    - forget about it, don't want to do it now
+    - don't want to do it now after all
+    - let's do it another time

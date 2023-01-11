@@ -46,3 +46,11 @@ stories:
   - action: action_get_stock_details
   - intent: goodbye
   - action: utter_goodbye
+
+- story: cancel stock form
+  steps:
+  - intent: request_stock_form
+  - action: stock_form
+  - active_loop: stock_form
+  - intent: cancel
+  - action: action_cancel_stock_form

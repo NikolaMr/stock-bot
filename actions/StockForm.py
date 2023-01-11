@@ -44,7 +44,7 @@ class ValidateStockForm(FormValidationAction):
         return res
 
 
-class ActionGetStockPrice(Action):
+class ActionSubmitStockForm(Action):
 
     def name(self) -> Text:
         return "action_submit_stock_form"
@@ -71,9 +71,24 @@ class ActionGetStockPrice(Action):
 
         dispatcher.utter_message(text=text)
 
+        return ActionCancelStockForm.get_reset_events()
+
+
+class ActionCancelStockForm(Action):
+
+    def name(self) -> Text:
+        return "action_cancel_stock_form"
+
+    @staticmethod
+    def get_reset_events():
         ret = []
 
         for slot_name in ['stock_base', 'buy_at_market_price', 'price', 'buy_type', 'amount']:
             ret.append(SlotSet(slot_name, None))
 
         return ret
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        return ActionCancelStockForm.get_reset_events()
