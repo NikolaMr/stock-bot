@@ -1,0 +1,85 @@
+version: "3.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: get_stock_price
+  examples: |
+    - what is the price of [pltr]{"entity": "stock", "role": "base"} stock
+    - how much is [tesla]{"entity": "stock", "role": "base"} currently trading
+    - price of [mcdonalds]{"entity": "stock", "role": "base"}
+    - tell me the price of [nio]{"entity": "stock", "role": "base"}
+    - current value of [intel]{"entity": "stock", "role": "base"}
+    - what is the current price of [pltr]{"entity": "stock", "role": "base"} stock?
+    - what is the price [tesla]{"entity": "stock", "role": "base"}?
+- intent: get_stocks_compared
+  examples: |
+    - how well does [tesla]{"entity": "stock", "role": "base"} stock compare to [rivian]{"entity": "stock", "role": "match"}?
+    - how does [ford]{"entity": "stock", "role": "base"} compare to [nio]{"entity": "stock", "role": "match"}
+    - performance of [sofi]{"entity": "stock", "role": "base"} compared to [vacuum labs]{"entity": "stock", "role": "match"}
+    - how well does [apple]{"entity": "stock", "role": "base"} match to [samsung]{"entity": "stock", "role": "match"}
+    - how does [sony]{"entity": "stock", "role": "base"} compare to [nokia]{"entity": "stock", "role": "match"}
+- intent: get_stock_details
+  examples: |
+    - can you give me details for [pltr]{"entity": "stock", "role": "base"} stock
+    - show me info for [roblox]{"entity": "stock", "role": "base"}
+    - give me details of [elasticsearch]{"entity": "stock", "role": "base"} stock
+    - do you have details for [google]{"entity": "stock", "role": "base"}
+    - stock info for [xiaomi]{"entity": "stock", "role": "base"}
+    - [gamestop]{"entity": "stock", "role": "base"} info
+    - [upwork]{"entity": "stock", "role": "base"} details
+    - details for [ferrari]{"entity": "stock", "role": "base"}
+- intent: inform
+  examples: |
+    - [tesla]{"entity": "stock", "role": "base"}
+    - [ibm]{"entity": "stock", "role": "base"}
+    - [xpeng]{"entity": "stock", "role": "base"}
+    - [novonordisk]{"entity": "stock", "role": "base"}
+    - [nndm]{"entity": "stock", "role": "base"}
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

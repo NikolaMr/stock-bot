@@ -1,0 +1,47 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- get_stocks_compared
+- bot_challenge
+- get_stock_price
+- affirm
+- deny
+- get_stock_details
+entities:
+- stock
+slots:
+  stock_base:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: stock
+      role: base
+  stock_match:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: stock
+      role: match
+responses:
+  utter_greet:
+  - text: Hey! How can I help you with stocks?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a stock informing bot.
+actions:
+- action_get_stock_price
+- action_get_stocks_compared
+- action_get_stock_details
+- action_validate_slot_mappings
+- utter_goodbye
+- utter_greet
+- utter_iamabot

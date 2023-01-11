@@ -1,0 +1,47 @@
+version: "3.0"
+
+stories:
+
+- story: inform stock price
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_stock_price
+  - action: action_get_stock_price
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_stock_price
+    entities:
+    - stock: pltr
+  - action: action_get_stock_price
+  - intent: get_stock_price
+    entities:
+    - stock: tesla
+  - action: action_get_stock_price
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_stocks_compared
+    entities:
+    - stock: sony
+    - stock: nokia
+  - action: action_get_stocks_compared
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: story_stock_details
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_stock_details
+    entities:
+    - stock: sony
+  - action: action_get_stock_details
+  - intent: goodbye
+  - action: utter_goodbye
