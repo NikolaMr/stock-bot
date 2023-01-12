@@ -1,0 +1,38 @@
+version: "3.1"
+
+nlu:
+- lookup: stock
+  examples: |
+    - pltr
+    - palantir
+    - tesla
+    - tsla
+    - nio
+    - xpeng
+    - xpev
+    - amd
+    - intel
+    - rivian
+    - rivn
+    - race
+    - ferrari
+    - novonordisk
+    - nvidia
+    - nvda
+    - apple
+    - aapl
+    - ford
+    - gme
+    - gamestop
+    - tsm
+    - Taiwan Semiconductor
+    - Walt Disney 
+    - DIS
+    - amc
+    - sofi
+    - sofi tech
+    - meta
+    - facebook
+    - snap
+    - msft
+    - microsoft
